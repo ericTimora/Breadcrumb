@@ -4,6 +4,7 @@ import android.content.IntentSender;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.location.LocationListener;
@@ -42,6 +44,7 @@ public class MapsActivity
     private NavigationView          mDrawer;
     private DrawerLayout            mDrawerLayout;
     private ActionBarDrawerToggle   mDrawerToggle;
+    private View                    faButton;
 
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     public static final String TAG = MapsActivity.class.getSimpleName();
@@ -55,7 +58,7 @@ public class MapsActivity
         mMap.animateCamera(mCameraUpdate);
     }
 
-    private void initiateDrawer(){
+    private void initializeDrawer(){
         mDrawer         = (NavigationView) findViewById(R.id.main_drawer);
         mDrawerLayout   = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToolbar        = (Toolbar) findViewById(R.id.toolbar_header);
@@ -68,7 +71,7 @@ public class MapsActivity
         mDrawerToggle.syncState();
     }
 
-    private void initiateMap(){
+    private void initializeMap(){
         setUpMapIfNeeded();
         mMap.setMyLocationEnabled(true);
 
@@ -84,12 +87,22 @@ public class MapsActivity
                            .setFastestInterval(10000);
     }
 
+    private void initializeFAB() {
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(faButton, "FAB clicked", Snackbar.LENGTH_SHORT).show();
+            }
+        });
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        initiateDrawer();
-        initiateMap();
+        initializeDrawer();
+        initializeMap();
+        initializeFAB();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
