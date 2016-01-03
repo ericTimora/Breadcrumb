@@ -1,0 +1,7 @@
+This project is designed to manipulate images in the PNM format.
+Currently this program can reduce the size of the image, 
+concatenate images side by side as well as top to bottom, and blend
+two images together.
+
+The majority of image processing funcitons lie in the filters files
+which hold the classes for each different type of image manipulation.

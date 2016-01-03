@@ -40,23 +40,4 @@ int main(int argc, char *argv[])
     blender.GetOutput()->Update();
  
     writer.Write(argv[2]);
-/*    
-	PNMreader reader(argv[1]);
-	PNMwriter writer;
-	Shrinker shrinker1;
-	LRConcat lrconcat1;
-	TBConcat tbconcat1;
-	Shrinker shrinker2;
-	
-	shrinker1.SetInput(reader.GetOutput());
-	lrconcat1.SetInput(shrinker1.GetOutput());
-	lrconcat1.SetInput2(shrinker1.GetOutput());
-	tbconcat1.SetInput(lrconcat1.GetOutput());
-	tbconcat1.SetInput2(lrconcat1.GetOutput());
-	shrinker2.SetInput(tbconcat1.GetOutput());
-	writer.SetInput(shrinker2.GetOutput());
-
-	shrinker2.GetOutput()->Update();
-	writer.Write(argv[2]);
-*/
 }
