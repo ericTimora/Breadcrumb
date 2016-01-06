@@ -107,17 +107,17 @@ void LRConcat::Execute(){
 	picture.updated = true;
 }
 void TBConcat::Execute(){
-	unsigned char 	*topBuff;
-	unsigned char 	*bottomBuff;
-	unsigned char 	*outputBuff;
-	const int		topWidth(input->getWidth());
-	const int		topHeight(input->getHeight());
-	const int		botWidth(input2->getWidth());
-	const int		botHeight(input2->getHeight());
-	const int		outWidth(topWidth);
-	const int		outHeight(topHeight + botHeight);
-	int				index(0);
-	int				index1(0);
+	unsigned char   *topBuff;
+	unsigned char   *bottomBuff;
+	unsigned char   *outputBuff;
+	const int       topWidth(input->getWidth());
+	const int       topHeight(input->getHeight());
+	const int       botWidth(input2->getWidth());
+	const int       botHeight(input2->getHeight());
+	const int       outWidth(topWidth);
+	const int       outHeight(topHeight + botHeight);
+	int             index(0);
+	int             index1(0);
 
 	outputBuff 	= new unsigned char[COLOR_DIMENSION * outWidth * outHeight];
 	topBuff		= input->getData();
@@ -158,12 +158,12 @@ void Blender::Execute(){
 	unsigned char 	*buff1;
 	unsigned char 	*buff2;
 	unsigned char 	*buffOut;
-	const int 		width(input->getWidth());
-	const int		height(input->getHeight());
+	const int       width(input->getWidth());
+	const int       height(input->getHeight());
 	int				index(0);
-	int redFactor(0);
-	int greenFactor(0);
-	int blueFactor(0);
+	int             redFactor(0);
+	int             greenFactor(0);
+	int             blueFactor(0);
 
 	buffOut = new unsigned char[COLOR_DIMENSION * width * height];
 
